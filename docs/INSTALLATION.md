@@ -18,4 +18,4 @@ $ cd wiki
 $ make install
 ```
 
-After public.crt is generated, you can import the certificate into your browser (e.g., Google Chrome) to eliminate the “Not secure” warning when accessing the site.
+After `public.crt` is generated, you can import the certificate into your browser (e.g., Google Chrome) to eliminate the “Not secure” warning when accessing the site. 
