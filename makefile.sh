@@ -91,12 +91,15 @@ function create_env_files {
 }
 
 function generate_https_conf {
-    echo "Generating HTTPS configuration"
+    local CN=$(grep '^HOST=' env/env.outline | cut -d '=' -f2)
+    CN=${CN:-localhost}
+
+    echo "Generating HTTPS configuration for $CN"
     # https://letsencrypt.org/docs/certificates-for-localhost/
     openssl req -x509 -out data/certs/public.crt -keyout data/certs/private.key \
         -newkey rsa:2048 -nodes -sha256 \
-        -subj '/CN=localhost' -extensions EXT -config <( \
-        printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+        -subj "/CN=$CN" -extensions EXT -config <( \
+        printf "[dn]\nCN=$CN\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=IP:$CN\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 
     set -o allexport; source env/env.outline; set +o allexport
     read -p "Enter https port number [443]: " HTTPS_PORT
