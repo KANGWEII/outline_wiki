@@ -1,0 +1,26 @@
+name: default
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    strategy:
+      max-parallel: 5
+      matrix:
+        container: [ubuntu-24.04]
+    runs-on: ${{matrix.container}}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
