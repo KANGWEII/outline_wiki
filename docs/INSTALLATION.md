@@ -8,6 +8,9 @@ $ git clone --recursive https://github.com/KANGWEII/wiki.git
 ```
 
 ## Setup the environment
+> [!IMPORTANT]  
+> Refer to [tailscale](https://tailscale.com/tailscale) to set up your own VPN. If cross-device access is not required, you may skip this step and proceed with `localhost`.
+
 Run the following command to generate all necessary environment files, TLS certificates, and data directories.
 
 When prompted for a hostname, you can:
