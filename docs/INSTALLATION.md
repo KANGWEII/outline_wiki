@@ -4,7 +4,7 @@ This code should compile on any recent Linux distribution with a C++11/14/17-com
 
 ## Getting this repository
 ```bash
-$ git clone --recursive https://github.com/KANGWEII/wiki.git
+$ git clone --recursive https://github.com/KANGWEII/outline_wiki.git
 ```
 
 ## Setup the environment
@@ -17,7 +17,7 @@ When prompted for a hostname, you can:
 - Enter the IP address of your host machine as assigned by your VPN (e.g., Tailscale, WireGuard) to access the Outline Wiki from any device on the same VPN network.
 - Enter `localhost` if you're accessing it only from your local machine.
 ```bash
-$ cd wiki
+$ cd outline_wiki
 $ make install
 ```
 
