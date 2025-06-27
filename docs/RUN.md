@@ -21,7 +21,7 @@ $ make stop
 
 ### Cleanup
 ```bash
-> [!WARNING]
+> [!WARNING]  
 > Running the following commands will clean up the workspace. **All data will be permanently lost and cannot be recovered.
 make clean-docker   # Stop & remove containers/volumes
 make clean-env      # Remove generated .env and cert files
